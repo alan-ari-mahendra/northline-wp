@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Northline Operations</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-dim":"#d3daea","outline-variant":"#c5c6ce","on-error-container":"#93000a","background":"#f9f9ff","on-secondary-container":"#007166","on-background":"#151c27","surface-bright":"#f9f9ff","on-surface":"#151c27","surface-tint":"#525e7d","surface":"#f9f9ff","on-primary-fixed-variant":"#3a4664","surface-container":"#e7eefe","on-tertiary-fixed":"#251a00","inverse-on-surface":"#ebf1ff","on-primary-container":"#7c89aa","primary-container":"#14213d","error-container":"#ffdad6","surface-container-highest":"#dce2f3","on-secondary-fixed-variant":"#005048","error":"#ba1a1a","surface-container-high":"#e2e8f8","surface-container-lowest":"#ffffff","primary-fixed":"#d9e2ff","inverse-surface":"#2a313d","secondary":"#006a60","tertiary-fixed":"#ffdf96","on-primary-fixed":"#0d1b36","outline":"#75777e","on-tertiary":"#ffffff","on-tertiary-container":"#a58532","inverse-primary":"#b9c6ea","primary-fixed-dim":"#b9c6ea","on-secondary-fixed":"#00201c","secondary-fixed":"#8cf5e4","tertiary-fixed-dim":"#e7c268","surface-variant":"#dce2f3","tertiary-container":"#2c2000","secondary-container":"#8cf5e4","surface-container-low":"#f0f3ff","on-tertiary-fixed-variant":"#5a4400","on-surface-variant":"#45464d","on-primary":"#ffffff","primary":"#000a24","tertiary":"#110a00","on-secondary":"#ffffff","on-error":"#ffffff","secondary-fixed-dim":"#6fd8c8"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-sm":"0.5rem",margin:"1.25rem","gutter-desktop":"2.5rem","space-3xl":"6rem","space-md":"1rem","space-xl":"2.5rem",gutter:"1.5rem","space-2xl":"4rem","space-xs":"0.25rem","margin-desktop":"4rem","space-lg":"1.5rem"},fontFamily:{"headline-lg-mobile":["Newsreader"],"body-sm":["DM Sans"],"headline-md":["Newsreader"],"headline-sm":["Newsreader"],"title-editorial":["Newsreader"],"label-editorial":["DM Sans"],"numeral-accent":["Newsreader"],"body-lg":["DM Sans"],"display-xl-mobile":["Newsreader"],"headline-lg":["Newsreader"],"display-xl":["Newsreader"],"body-md":["DM Sans"]},fontSize:{"headline-lg-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.01em",fontWeight:"400"}],"body-sm":["13px",{lineHeight:"20px",fontWeight:"400"}],"headline-md":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"400"}],"headline-sm":["22px",{lineHeight:"30px",fontWeight:"400"}],"title-editorial":["18px",{lineHeight:"26px",letterSpacing:"0.01em",fontWeight:"400"}],"label-editorial":["11px",{lineHeight:"16px",letterSpacing:"0.08em",fontWeight:"500"}],"numeral-accent":["24px",{lineHeight:"28px",letterSpacing:"0.02em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],"display-xl-mobile":["38px",{lineHeight:"46px",letterSpacing:"-0.015em",fontWeight:"400"}],"headline-lg":["40px",{lineHeight:"48px",letterSpacing:"-0.015em",fontWeight:"400"}],"display-xl":["56px",{lineHeight:"64px",letterSpacing:"-0.02em",fontWeight:"400"}],"body-md":["15px",{lineHeight:"24px",fontWeight:"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-[#FAFAF7] border-b border-outline-variant/30"><div class="max-w-[1280px] mx-auto px-gutter lg:px-margin-desktop h-20 flex items-center justify-between"><a class="flex items-baseline gap-space-sm group" data-path="home" href="#"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-normal">Northline</span><span class="font-label-editorial text-label-editorial uppercase tracking-wider text-outline border-l border-outline-variant/60 pl-space-sm">Operations · Manchester</span></a><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="text-primary font-medium border-b border-primary pb-0.5"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors pb-0.5 border-b border-transparent" data-path="home" href="#">Home</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors pb-0.5 border-b border-transparent" data-path="services" href="#">Services</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors pb-0.5 border-b border-transparent" data-path="approach" href="#">Approach</a><a aria-current="page" class="transition-colors text-primary font-medium border-b border-primary pb-0.5" data-path="selected-work" href="#">Selected Work</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors pb-0.5 border-b border-transparent" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center justify-center bg-primary-container text-surface-container-lowest font-label-editorial text-label-editorial uppercase tracking-widest px-space-lg py-space-sm hover:bg-primary transition-colors border border-primary-container" data-path="contact" href="#">Book a Discovery Call</a></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- SECTION 1: ARCHIVAL FOLIO HEADER & DOSSIER OVERVIEW -->
+<section class="max-w-[1280px] w-full mx-auto px-gutter lg:px-margin-desktop pt-space-xl pb-space-2xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-end pb-space-lg">
+<div class="lg:col-span-8 space-y-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline">Ref: Archive Dossiers</span>
+<span class="inline-block w-1.5 h-1.5 bg-tertiary-fixed-dim"></span>
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline">[ DOSSIER ARCHIVE &amp; CASE RECORDS ]</span>
+</div>
+<h1 class="font-display-xl text-display-xl text-primary tracking-tight font-normal">
+          Documented transformations.
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl pt-space-xs">
+          Selected operations realignments for owner-managed businesses across the UK.
+        </p>
+</div>
+<div class="lg:col-span-4 flex flex-col justify-end space-y-space-sm lg:text-right">
+<div class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline">
+          Field Engagements · 2022–2024
+        </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Structural interventions focused on organizational clarity, process hygiene, and operational resilience.
+        </p>
+</div>
+</div>
+<!-- FILTER TAXONOMY ROW -->
+<div class="pt-space-md flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-xs text-on-surface" id="filter-container">
+<button class="filter-btn font-label-editorial text-label-editorial uppercase tracking-widest px-space-md py-space-sm bg-primary-container text-surface-container-lowest transition-colors" data-filter="all" type="button">
+          [ All Engagements ]
+        </button>
+<button class="filter-btn font-label-editorial text-label-editorial uppercase tracking-widest px-space-md py-space-sm bg-surface-container-high/50 text-on-surface hover:bg-surface-container-high transition-colors" data-filter="logistics" type="button">
+          [ Logistics &amp; Supply ]
+        </button>
+<button class="filter-btn font-label-editorial text-label-editorial uppercase tracking-widest px-space-md py-space-sm bg-surface-container-high/50 text-on-surface hover:bg-surface-container-high transition-colors" data-filter="manufacturing" type="button">
+          [ Precision Manufacturing ]
+        </button>
+<button class="filter-btn font-label-editorial text-label-editorial uppercase tracking-widest px-space-md py-space-sm bg-surface-container-high/50 text-on-surface hover:bg-surface-container-high transition-colors" data-filter="services" type="button">
+          [ Professional Services ]
+        </button>
+</div>
+<div class="hidden sm:flex items-center gap-space-sm">
+<span class="font-label-editorial text-label-editorial uppercase tracking-wider text-outline">Standard: Qualitative Audit Records</span>
+<span class="font-label-editorial text-label-editorial text-outline">·</span>
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-tertiary-fixed-dim">Strictly Unembellished</span>
+</div>
+</div>
+</section>
+<!-- SECTION 2: CASE RECORDS MONOGRAPH CARDS -->
+<section class="max-w-[1280px] w-full mx-auto px-gutter lg:px-margin-desktop space-y-space-3xl pb-space-3xl">
+<!-- CASE 01: LOGISTICS -->
+<article class="case-card grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-stretch bg-surface-container-lowest p-space-lg lg:p-space-xl" data-category="logistics">
+<div class="lg:col-span-5 flex flex-col justify-between space-y-space-lg">
+<div class="space-y-space-md">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest px-space-sm py-1 bg-surface-container-high text-on-surface-variant">
+              Concept Case Study
+            </span>
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest px-space-sm py-1 bg-surface-container-low text-secondary">
+              Transport &amp; Distribution
+            </span>
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline ml-auto">
+              Folio N° 01
+            </span>
+</div>
+<div class="pt-space-xs">
+<span class="font-numeral-accent text-numeral-accent text-outline block">Record / 01</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight font-normal mt-space-xs">
+              Regional Logistics Firm
+            </h2>
+<p class="font-label-editorial text-label-editorial uppercase tracking-wider text-outline mt-1">
+              Merseyside &amp; Greater Manchester Hubs
+            </p>
+</div>
+<div class="space-y-space-md pt-space-sm">
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block mb-1">
+                The Operational Brief
+              </span>
+<p class="font-body-md text-body-md text-on-surface">
+                Reworked order-to-dispatch handoffs between commercial sales and warehousing teams. Critical freight orders experienced recurring friction due to fragmented intake protocols, unvetted delivery specs, and friction between field dispatchers and quoting desks.
+              </p>
+</div>
+<div class="bg-surface-container p-space-md">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-primary-container block mb-1">
+                Field Intervention &amp; Architecture
+              </span>
+<p class="font-body-md text-body-md text-on-surface">
+                Sunsetted four conflicting spreadsheet ledgers; established a unified operating rhythm and single-point order triage board. Rebuilt the morning stand-up agenda around exception handling rather than manual reconciliation.
+              </p>
+</div>
+</div>
+</div>
+<div class="pt-space-md space-y-space-sm">
+<div class="flex items-center justify-between text-on-surface-variant font-label-editorial text-label-editorial uppercase tracking-wider">
+<span>Engagement Horizon</span>
+<span class="text-on-surface font-medium">14 Weeks On-Site</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-editorial text-label-editorial uppercase tracking-wider">
+<span>Primary Asset Replaced</span>
+<span class="text-on-surface font-medium">4 Unaligned XLSM Workbooks</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-editorial text-label-editorial uppercase tracking-wider">
+<span>Core Tool Delivered</span>
+<span class="text-on-surface font-medium">Single-Screen Triage System</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col justify-between">
+<div class="relative w-full h-[360px] lg:h-[480px] overflow-hidden bg-surface-container">
+<img alt="Operations dispatch floor documentation" class="w-full h-full object-cover" data-alt="Editorial black and white documentary photograph of a bustling, disciplined northern UK logistics depot office at dawn. Desk with architectural paperwork, blueprints, industrial dispatch radio, and clipboards. Natural window light through steel warehouse girders, quiet high-contrast atmospheric depth, tactile analogue medium-format grain, ink and off-white hues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0hGQgxjUB7KtvWa_P0CeCCwSFE4inP1-saUVsCZCYLsDvSRFFZ5gp5VBa5trYFbdZ6U9Dn9kWvwp16vWcnT0DppCXWkt-cKcrLPha5_20gQeeYqPUhWUGuRZG2DjhxrVEzGq_mUJgXPcZNPHdVYGsvPxvRtXvlsSlQD6Cak0u0K-HTocPm0_F5msd4ExSWCk4xTe1_czgFUUj1-z6gIIp0_xHocp11xh4Ni6VB6DU"/>
+<div class="absolute bottom-space-md left-space-md bg-primary-container text-surface-container-lowest px-space-md py-space-xs font-label-editorial text-label-editorial uppercase tracking-widest">
+            Dispatch Floor Audit · Salford Quays
+          </div>
+</div>
+<div class="mt-space-md grid grid-cols-2 gap-space-md">
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block mb-1">Qualitative Shift</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+              Sales reps and load dispatchers now share identical view states during order receipt. No after-hours spreadsheet reconciliation required.
+            </p>
+</div>
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block mb-1">System State</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+              Daily delivery queries transitioned from ad-hoc emergency phone calls to scheduled 08:30 triage boards.
+            </p>
+</div>
+</div>
+</div>
+</article>
+<!-- CASE 02: PRECISION MANUFACTURING -->
+<article class="case-card grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-stretch bg-surface-container-lowest p-space-lg lg:p-space-xl" data-category="manufacturing">
+<div class="lg:col-span-7 order-2 lg:order-1 flex flex-col justify-between">
+<div class="relative w-full h-[360px] lg:h-[480px] overflow-hidden bg-surface-container">
+<img alt="Precision manufacturing shop floor calibration" class="w-full h-full object-cover" data-alt="Monochrome broadsheet editorial photograph of a precision CNC engineering shop floor in Yorkshire. Machined brass and steel components resting systematically on dark oiled wood benches. Machinist in clean workshop coat inspecting calibrated micrometer under stark industrial hanging lamp. Serious craft, measured space, dark ink tones and warm sand reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK1IcDVzgNdCBFczmUXTtXzpe2UkNVsrRD7hRqy-fxYa-n5hWksXxWgq4WupkmeWXIZdGdFk3Vyomw9d2CLv6l57aXeIRRUvhj-5XjliU65d3_MElB6OdAKymi3RgQO4XJMAX4nrXEf9aV36wmF6QvzsJ8SnGvBYdh0HE7mo3VQ3klHCSWewrqznv4xsXWazxt6YHO3u0pB-SLe0quUIKnOUqWAlXUD5jEeHHFFDoL"/>
+<div class="absolute bottom-space-md left-space-md bg-primary-container text-surface-container-lowest px-space-md py-space-xs font-label-editorial text-label-editorial uppercase tracking-widest">
+            CNC Milling Cadence Analysis · Halifax
+          </div>
+</div>
+<div class="mt-space-md grid grid-cols-2 gap-space-md">
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block mb-1">Leadership Focus</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+              Managing directors freed from micro-signing shop floor stock requisitions to lead multi-year naval aerospace bids.
+            </p>
+</div>
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block mb-1">Floor Autonomy</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+              Team leaders clear to authorize replacement tooling and job sequencing up to defined spend levels without escalations.
+            </p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 order-1 lg:order-2 flex flex-col justify-between space-y-space-lg">
+<div class="space-y-space-md">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest px-space-sm py-1 bg-surface-container-high text-on-surface-variant">
+              Concept Case Study
+            </span>
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest px-space-sm py-1 bg-surface-container-low text-secondary">
+              Advanced Engineering
+            </span>
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline ml-auto">
+              Folio N° 02
+            </span>
+</div>
+<div class="pt-space-xs">
+<span class="font-numeral-accent text-numeral-accent text-outline block">Record / 02</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight font-normal mt-space-xs">
+              Family-Run Precision Manufacturer
+            </h2>
+<p class="font-label-editorial text-label-editorial uppercase tracking-wider text-outline mt-1">
+              West Yorkshire Engineering Works
+            </p>
+</div>
+<div class="space-y-space-md pt-space-sm">
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block mb-1">
+                The Operational Brief
+              </span>
+<p class="font-body-md text-body-md text-on-surface">
+                Founders consumed by daily shopfloor approvals and emergency dispatch firefighting. Growth had turned the two founding brothers into bottleneck gatekeepers for material sign-offs, line changes, and machine calibration orders.
+              </p>
+</div>
+<div class="bg-surface-container p-space-md">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-primary-container block mb-1">
+                Field Intervention &amp; Architecture
+              </span>
+<p class="font-body-md text-body-md text-on-surface">
+                Implemented weekly cadence rhythms and delegative decision thresholds, allowing leadership to focus on long-term capital contracts. Established explicit tolerances for machine downtime, tool swap-outs, and batch rerouting.
+              </p>
+</div>
+</div>
+</div>
+<div class="pt-space-md space-y-space-sm">
+<div class="flex items-center justify-between text-on-surface-variant font-label-editorial text-label-editorial uppercase tracking-wider">
+<span>Engagement Horizon</span>
+<span class="text-on-surface font-medium">18 Weeks Embedded</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-editorial text-label-editorial uppercase tracking-wider">
+<span>Governance Shift</span>
+<span class="text-on-surface font-medium">Tiered Delegated Authority</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-editorial text-label-editorial uppercase tracking-wider">
+<span>Executive Time Regained</span>
+<span class="text-on-surface font-medium">Shopfloor Signoffs Removed</span>
+</div>
+</div>
+</div>
+</article>
+<!-- CASE 03: PROFESSIONAL SERVICES -->
+<article class="case-card grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-stretch bg-surface-container-lowest p-space-lg lg:p-space-xl" data-category="services">
+<div class="lg:col-span-5 flex flex-col justify-between space-y-space-lg">
+<div class="space-y-space-md">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest px-space-sm py-1 bg-surface-container-high text-on-surface-variant">
+              Concept Case Study
+            </span>
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest px-space-sm py-1 bg-surface-container-low text-secondary">
+              Architecture &amp; Planning
+            </span>
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline ml-auto">
+              Folio N° 03
+            </span>
+</div>
+<div class="pt-space-xs">
+<span class="font-numeral-accent text-numeral-accent text-outline block">Record / 03</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight font-normal mt-space-xs">
+              Multi-Disciplinary Professional Practice
+            </h2>
+<p class="font-label-editorial text-label-editorial uppercase tracking-wider text-outline mt-1">
+              Manchester City Centre &amp; Leeds Studio
+            </p>
+</div>
+<div class="space-y-space-md pt-space-sm">
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block mb-1">
+                The Operational Brief
+              </span>
+<p class="font-body-md text-body-md text-on-surface">
+                Billable hours leaked across uncoordinated partner handoffs and disjointed project trackers. Senior architects, technical design staff, and urban planners tracked project phases in disconnected tools, creating scope creep and unbilled revisions.
+              </p>
+</div>
+<div class="bg-surface-container p-space-md">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-primary-container block mb-1">
+                Field Intervention &amp; Architecture
+              </span>
+<p class="font-body-md text-body-md text-on-surface">
+                Clarified milestone handoffs and integrated resourcing protocol into their existing project stack. Replaced bespoke project manager checklists with a standardized architectural stage-gate matrix tied to client fee agreements.
+              </p>
+</div>
+</div>
+</div>
+<div class="pt-space-md space-y-space-sm">
+<div class="flex items-center justify-between text-on-surface-variant font-label-editorial text-label-editorial uppercase tracking-wider">
+<span>Engagement Horizon</span>
+<span class="text-on-surface font-medium">10 Weeks Diagnostic &amp; Rollout</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-editorial text-label-editorial uppercase tracking-wider">
+<span>Structural Matrix</span>
+<span class="text-on-surface font-medium">RIBA Stages 1-6 Stage-Gate Protocol</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-editorial text-label-editorial uppercase tracking-wider">
+<span>Operating Principle</span>
+<span class="text-on-surface font-medium">Milestone Explicit Acceptance</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col justify-between">
+<div class="relative w-full h-[360px] lg:h-[480px] overflow-hidden bg-surface-container">
+<img alt="Architectural studio project planning environment" class="w-full h-full object-cover" data-alt="Editorial monochrome archival photo of a high-ceilinged Manchester architectural drafting studio. Long oak layout tables covered with structural vellum drawings, scaled wood building models, drafting pens, and restrained typography boards. Soft indirect northern daylight, calm atmosphere of intellectual deliberation, ink black, pale charcoal, and muted warm stone tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACwBr6v3xNHJQb2oKu66NtIpeEo11Z1FB2pcLfP7WM04KhgPhrt25cQYoHB5_T2TjmFSf-rL6rMhEgES8sWwCaFHIRfFn7Zfx2ABWoQjp7SntvQpTOPRf1S_CbWYxVCEH0ZFM-5LEY3693xl99FRlEULgdXrhSYyREuFesKLDfUflKsJM4fMywttKrOQ8V-4NfBQz5Vbift7_m_Qs48sSLsAp3kMWA3bquCSPvFChI"/>
+<div class="absolute bottom-space-md left-space-md bg-primary-container text-surface-container-lowest px-space-md py-space-xs font-label-editorial text-label-editorial uppercase tracking-widest">
+            Design Management Audit · St Peter's Square
+          </div>
+</div>
+<div class="mt-space-md grid grid-cols-2 gap-space-md">
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block mb-1">Scope Protection</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+              Design amendments now require documented phase-closure before technical drawing begins, preventing silent overruns.
+            </p>
+</div>
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block mb-1">Capacity Visibility</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+              Principals review firm-wide workload using a single unified weekly schedule instead of disparate partner sheets.
+            </p>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- SECTION 3: EDITORIAL STATEMENT / MANIFESTO INSET -->
+<section class="w-full bg-primary-container text-surface-container-lowest py-space-3xl my-space-xl">
+<div class="max-w-[1280px] mx-auto px-gutter lg:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+<div class="lg:col-span-3 space-y-space-xs">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-on-primary-container block">
+            Operating Monograph
+          </span>
+<span class="font-label-editorial text-label-editorial uppercase tracking-wider text-tertiary-fixed block">
+            Doctrine on Complexity
+          </span>
+<div class="w-8 h-px bg-tertiary-fixed-dim/60 my-space-sm"></div>
+<p class="font-body-sm text-body-sm text-on-primary-container">
+            Extracted from internal Northline consultation standards, Chapter IV.
+          </p>
+</div>
+<div class="lg:col-span-9 pl-0 lg:pl-space-xl">
+<blockquote class="font-headline-lg text-headline-lg lg:text-display-xl font-normal leading-tight text-surface-bright tracking-tight italic">
+            “The healthiest companies operate on fewer spreadsheets, simpler rules, and direct personal accountability.”
+          </blockquote>
+<div class="mt-space-lg flex flex-wrap items-center gap-space-lg">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-tertiary-fixed">
+              Northline Operations · Practice Philosophy
+            </span>
+<span class="font-label-editorial text-label-editorial uppercase tracking-wider text-on-primary-container">
+              No decorative dashboards. No vanity throughput.
+            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: QUALITATIVE AUDIT PROTOCOL & ARTIFACT MATRIX -->
+<section class="max-w-[1280px] w-full mx-auto px-gutter lg:px-margin-desktop py-space-2xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop">
+<div class="lg:col-span-4 space-y-space-md">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block">
+          Operating Standards
+        </span>
+<h3 class="font-headline-md text-headline-md text-primary font-normal">
+          How case studies are evaluated.
+        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          We reject fabricated statistical claims. We measure success through organizational stamina, eliminated administrative drift, and the permanence of new operational habits.
+        </p>
+<div class="bg-surface-container-low p-space-md space-y-space-xs">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-secondary block font-medium">
+            [ Rigor Protocol ]
+          </span>
+<p class="font-body-sm text-body-sm text-on-surface">
+            Case studies document real client situations under strict confidentiality. Specific commercial metrics are deliberately withheld to preserve operational trade security.
+          </p>
+</div>
+</div>
+<div class="lg:col-span-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<div class="bg-surface-container-lowest p-space-lg flex flex-col justify-between">
+<div>
+<span class="font-numeral-accent text-numeral-accent text-primary block">I.</span>
+<h4 class="font-title-editorial text-title-editorial text-primary mt-space-xs font-normal">
+                Removal of Shadow Systems
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm">
+                Every intervention audits unofficial notebooks, rogue sub-spreadsheets, and unlogged WhatsApp chains that teams invent to survive broken official processes.
+              </p>
+</div>
+<div class="pt-space-md font-label-editorial text-label-editorial uppercase tracking-wider text-outline">
+              Standard: Single Verifiable Ledger
+            </div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg flex flex-col justify-between">
+<div>
+<span class="font-numeral-accent text-numeral-accent text-primary block">II.</span>
+<h4 class="font-title-editorial text-title-editorial text-primary mt-space-xs font-normal">
+                Paced Operating Cadences
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm">
+                Replacing chaotic ad-hoc emergency summits with precise 15-minute standing reviews, scheduled decision windows, and unambiguous escalation lanes.
+              </p>
+</div>
+<div class="pt-space-md font-label-editorial text-label-editorial uppercase tracking-wider text-outline">
+              Standard: Structured Cadence Rhythm
+            </div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg flex flex-col justify-between">
+<div>
+<span class="font-numeral-accent text-numeral-accent text-primary block">III.</span>
+<h4 class="font-title-editorial text-title-editorial text-primary mt-space-xs font-normal">
+                Delegated Decision Boundaries
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm">
+                Translating founder intuition into documented operational boundaries so team leaders can approve requisitions without continuous executive interruption.
+              </p>
+</div>
+<div class="pt-space-md font-label-editorial text-label-editorial uppercase tracking-wider text-outline">
+              Standard: Explicit Tolerance Tiers
+            </div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg flex flex-col justify-between">
+<div>
+<span class="font-numeral-accent text-numeral-accent text-primary block">IV.</span>
+<h4 class="font-title-editorial text-title-editorial text-primary mt-space-xs font-normal">
+                Post-Engagement Permanence
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm">
+                Six months after handoff, we verify whether the simplified protocols remain active or whether old operational friction crept back into daily habits.
+              </p>
+</div>
+<div class="pt-space-md font-label-editorial text-label-editorial uppercase tracking-wider text-outline">
+              Standard: 180-Day Structural Audit
+            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: BOTTOM CALL TO ACTION / BRIEFING INTAKE -->
+<section class="max-w-[1280px] w-full mx-auto px-gutter lg:px-margin-desktop pt-space-2xl pb-space-3xl">
+<div class="bg-surface-container-lowest p-space-xl lg:p-space-2xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+<div class="lg:col-span-8 space-y-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline">Intake Briefing</span>
+<span class="w-1.5 h-1.5 bg-tertiary-fixed-dim"></span>
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-secondary">[ DIRECT CONSULTATION ]</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg lg:text-display-xl text-primary tracking-tight font-normal">
+            Discuss your organization’s challenges.
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            We review operational structures, process handoffs, and management bottlenecks with complete discretion. Book an exploratory session with our senior partners.
+          </p>
+<div class="pt-space-sm flex flex-col sm:flex-row sm:items-center gap-space-lg">
+<div class="space-y-1">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block">Direct Line · Manchester Studio</span>
+<a class="font-numeral-accent text-numeral-accent text-primary hover:text-secondary transition-colors" href="tel:01614960123">
+                0161 496 0123
+              </a>
+</div>
+<div class="space-y-1 sm:pl-space-lg sm:border-l sm:border-outline-variant/30">
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block">Correspondence</span>
+<a class="font-body-md text-body-md text-primary hover:underline underline-offset-4 decoration-tertiary-fixed-dim" href="mailto:hello@northline.demo">
+                hello@northline.demo
+              </a>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col items-start lg:items-end justify-center space-y-space-md">
+<a class="inline-flex items-center justify-center bg-primary-container text-surface-container-lowest font-label-editorial text-label-editorial uppercase tracking-widest px-space-xl py-space-md hover:bg-primary transition-colors text-center w-full sm:w-auto" data-path="contact" href="#">
+            Book a Discovery Call
+          </a>
+<span class="font-label-editorial text-label-editorial uppercase tracking-wider text-outline text-left lg:text-right block">
+            St Ann’s Square · Manchester M2 7PW
+          </span>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-left lg:text-right">
+            Initial reviews take 45 minutes and are conducted in person or via secure video.
+          </p>
+</div>
+</div>
+</div>
+<!-- MANDATORY LEGAL CONCEPT NOTICE -->
+<div class="mt-space-xl pt-space-lg flex flex-col md:flex-row items-baseline justify-between gap-space-sm">
+<p class="font-label-editorial text-label-editorial uppercase tracking-wider text-outline">
+        Concept project. Brand, people, prices and reviews are fictional.
+      </p>
+<span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline/80">
+        ARCHIVAL RECORD CODE: MCR-REF-SELECTED-2024
+      </span>
+</div>
+</section>
+<!-- INTERACTIVE TAXONOMY FILTER SCRIPT -->
+<script>
+    (function() {
+      const container = document.getElementById('filter-container');
+      if (!container) return;
+      
+      const buttons = container.querySelectorAll('.filter-btn');
+      const caseCards = document.querySelectorAll('.case-card');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.getAttribute('data-filter');
+
+          // Update active styles for filter chips
+          buttons.forEach(btn => {
+            btn.classList.remove('bg-primary-container', 'text-surface-container-lowest');
+            btn.classList.add('bg-surface-container-high/50', 'text-on-surface');
+          });
+
+          button.classList.remove('bg-surface-container-high/50', 'text-on-surface');
+          button.classList.add('bg-primary-container', 'text-surface-container-lowest');
+
+          // Filter card visibility with subtle fade transition
+          caseCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+              card.style.display = 'grid';
+              card.style.opacity = '0';
+              setTimeout(() => {
+                card.style.transition = 'opacity 0.25s ease-in-out';
+                card.style.opacity = '1';
+              }, 10);
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-[#FAFAF7] border-t border-outline-variant/40 mt-space-3xl"><div class="max-w-[1280px] mx-auto px-gutter lg:px-margin-desktop py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-desktop pb-space-2xl border-b border-outline-variant/30"><div class="md:col-span-4 flex flex-col justify-between space-y-space-md"><div><a class="font-headline-sm text-headline-sm text-primary block" data-path="home" href="#">Northline</a><p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Operations Consultancy · Manchester, UK</p></div><div class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline">© 2024 Northline Operations. All rights reserved.</div></div><div class="md:col-span-4 space-y-space-sm"><span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block mb-space-sm">Manchester Studio</span><p class="font-body-sm text-body-sm text-on-surface"><span class="text-outline block">Inquiries</span> hello@northline.demo</p><p class="font-body-sm text-body-sm text-on-surface"><span class="text-outline block">Phone</span> 0161 496 0123</p><p class="font-body-sm text-body-sm text-on-surface"><span class="text-outline block">Location</span> St Ann’s Square, Manchester, UK</p></div><div class="md:col-span-4 space-y-space-sm"><span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block mb-space-sm">Index &amp; Dossiers</span><ul class="space-y-space-xs"><li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="services" href="#">Practice Areas &amp; Services</a></li><li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="approach" href="#">Operating Architecture &amp; Approach</a></li><li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="selected-work" href="#">Selected Client Work</a></li><li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline decoration-outline-variant underline-offset-4" data-path="contact" href="#">Direct Consultation Briefing</a></li></ul></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-baseline justify-between gap-space-md"><p class="font-label-editorial text-label-editorial uppercase tracking-wider text-outline">Concept project. Brand, people, prices and reviews are fictional.</p><span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline/80">MCR · ARCHIVAL REF 0161</span></div></div></footer>
+</body></html>
