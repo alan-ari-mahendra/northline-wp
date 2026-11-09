@@ -78,7 +78,7 @@ $s_hero = <<<'HTML'
       <div class="lg:col-span-5 mt-space-xl lg:mt-0 flex flex-col">
         <div class="bg-surface-container-lowest p-space-sm">
           <div class="relative w-full bg-surface-container overflow-hidden" style="aspect-ratio:4/5;">
-            <img alt="Manchester office" class="w-full h-full object-cover grayscale contrast-[1.05]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa7lkh5E9R6c9NEfAIPR-31Mq-QsLUxoEmCtkS_QSHZYkp-pWcXQbAMoFTHnuJdFPc1yhRh8702Dsjff8htXW25204FwCE-DKkuUdbofwnuVXQga6V6pzs_FKtJf266IMejNtFEJbRgjlztEc_tiuqIK8-7YY4riLg-G59LLdqwK2c3F4UOHLKF1h_X_MWMem-OCt0ZM9DuzemF0AV7REZTyFTn9Mg10dWrJBPd6XY">
+            <img alt="Manchester office" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa7lkh5E9R6c9NEfAIPR-31Mq-QsLUxoEmCtkS_QSHZYkp-pWcXQbAMoFTHnuJdFPc1yhRh8702Dsjff8htXW25204FwCE-DKkuUdbofwnuVXQga6V6pzs_FKtJf266IMejNtFEJbRgjlztEc_tiuqIK8-7YY4riLg-G59LLdqwK2c3F4UOHLKF1h_X_MWMem-OCt0ZM9DuzemF0AV7REZTyFTn9Mg10dWrJBPd6XY">
             <div class="absolute bottom-3 left-3 bg-surface-container-lowest/90 px-space-sm py-0.5">
               <span class="font-label-editorial text-label-editorial uppercase text-on-surface tracking-widest" style="font-size:10px;">LOC: MANCHESTER · STUDIO DESK</span>
             </div>
@@ -307,7 +307,7 @@ $s_work = <<<'HTML'
           </div>
           <h3 class="font-headline-md text-headline-md text-primary mb-space-md">Regional logistics firm</h3>
           <div class="w-full bg-surface-container mb-space-lg overflow-hidden" style="aspect-ratio:16/9;">
-            <img alt="warehouse operations" class="w-full h-full object-cover grayscale contrast-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxkUu9ghoEYCM-2YVCkB8iCYXn2MQxsDzPS04fFlUPY68AePPojXvr9L-3QudT6y6aTfusYlzHGG35kbtNT0SZjkXoxe9ZNM1mfpXxgagpvHHvyRDM1xpi2_S-Qsu4CTliUQMFcjoRxlccUs1g_4W3m_YlyWhuOVif9u7I6tjtPwMX5i0lbuZf2GbSt03KrNIbJSGkcPQV6a_6esVgoDF40tQgc9knsufsh2uny158">
+            <img alt="warehouse operations" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxkUu9ghoEYCM-2YVCkB8iCYXn2MQxsDzPS04fFlUPY68AePPojXvr9L-3QudT6y6aTfusYlzHGG35kbtNT0SZjkXoxe9ZNM1mfpXxgagpvHHvyRDM1xpi2_S-Qsu4CTliUQMFcjoRxlccUs1g_4W3m_YlyWhuOVif9u7I6tjtPwMX5i0lbuZf2GbSt03KrNIbJSGkcPQV6a_6esVgoDF40tQgc9knsufsh2uny158">
           </div>
           <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
             Reworked order-to-dispatch handoffs between sales and the warehouse team, with one shared tracking board replacing four spreadsheets.
@@ -327,7 +327,7 @@ $s_work = <<<'HTML'
           </div>
           <h3 class="font-headline-md text-headline-md text-primary mb-space-md">Family-run manufacturer</h3>
           <div class="w-full bg-surface-container mb-space-lg overflow-hidden" style="aspect-ratio:16/9;">
-            <img alt="team workshop office" class="w-full h-full object-cover grayscale contrast-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHF4FKnDgTo1QtSuHED8FhXL50mYpy9LzgZHS0AQcHeiEyXYsIlNJhx-geSgdbdARtovYv79u_PMWATZTnHwh3qJObyPGL2Dp5-ac1JpDq_mmz7kUeuA0UdeZ9F_5nFrFBYThmk5lNbCA6rjMSDq_44NR_PGIvEnXpcsaajomKzD0hcjsdJxjjXpqZZmqw66GaWT8r-9PqziIRpTOq68v4o1TmUpZvRz5IXhs6OOe8">
+            <img alt="team workshop office" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHF4FKnDgTo1QtSuHED8FhXL50mYpy9LzgZHS0AQcHeiEyXYsIlNJhx-geSgdbdARtovYv79u_PMWATZTnHwh3qJObyPGL2Dp5-ac1JpDq_mmz7kUeuA0UdeZ9F_5nFrFBYThmk5lNbCA6rjMSDq_44NR_PGIvEnXpcsaajomKzD0hcjsdJxjjXpqZZmqw66GaWT8r-9PqziIRpTOq68v4o1TmUpZvRz5IXhs6OOe8">
           </div>
           <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
             Created a weekly operating rhythm and clear decision owners so the founders could step back from day-to-day approvals.
@@ -351,7 +351,7 @@ $s_about = <<<'HTML'
       <div class="lg:col-span-5 flex flex-col">
         <div class="bg-surface p-space-sm">
           <div class="relative w-full bg-surface-container overflow-hidden" style="aspect-ratio:4/5;">
-            <img alt="Founder — stock image" class="w-full h-full object-cover grayscale" style="filter:grayscale(1) contrast(1.08);" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCebdvuJPKzNBxaXYRapIQd_Zo5hnl4x2435tfArr38rXwhRGzi9nL8UH72A1vYRX3NyK-8tbYQQzVR0fegzyaEACk-yOQsqjM4IPipTNRm2xuoor5baIfzNeoBMmA1GtkMOFg8uXRMxeivnUoKNmlwOAKf5Al_iSyKAa2JQ0CzvF7mNQ8HIHqL6VkzLTBfJqtcPbLaefkDQPN-WEO9xuYYurDCgxeRCTwBCQWbKfCx">
+            <img alt="Founder — stock image" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08);" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCebdvuJPKzNBxaXYRapIQd_Zo5hnl4x2435tfArr38rXwhRGzi9nL8UH72A1vYRX3NyK-8tbYQQzVR0fegzyaEACk-yOQsqjM4IPipTNRm2xuoor5baIfzNeoBMmA1GtkMOFg8uXRMxeivnUoKNmlwOAKf5Al_iSyKAa2JQ0CzvF7mNQ8HIHqL6VkzLTBfJqtcPbLaefkDQPN-WEO9xuYYurDCgxeRCTwBCQWbKfCx">
             <div class="absolute bottom-3 left-3 bg-surface-container-lowest/90 px-space-sm py-0.5">
               <span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline" style="font-size:10px;">FOUNDER · LEAD PRACTITIONER</span>
             </div>
@@ -584,15 +584,15 @@ $elementor_data = [
 
 $elementor_json = wp_json_encode( $elementor_data );
 
-$page_settings = wp_json_encode( [
+// _elementor_page_settings must be a PHP array (WordPress serialises it), NOT json string
+$page_settings = [
 	'custom_css' => '
 /* Northline canvas fix */
 body { background:#f9f9ff !important; }
 .elementor-widget-html { display:block; width:100%; }
 .elementor-widget-container { padding:0 !important; }
-e-con.e-con-full { max-width:100% !important; }
 ',
-] );
+];
 
 // ===========================================================================
 // CREATE OR UPDATE HOME PAGE
@@ -637,10 +637,10 @@ if ( ! $page_id ) {
 
 if ( $page_id ) {
 	// Set Elementor data
-	update_post_meta( $page_id, '_elementor_data',          $elementor_json );
+	update_post_meta( $page_id, '_elementor_data',          wp_slash( $elementor_json ) );
 	update_post_meta( $page_id, '_elementor_edit_mode',     'builder' );
 	update_post_meta( $page_id, '_elementor_template_type', 'page' );
-	update_post_meta( $page_id, '_elementor_page_settings', $page_settings );
+	update_post_meta( $page_id, '_elementor_page_settings', $page_settings ); // PHP array, WordPress will serialise
 	update_post_meta( $page_id, '_wp_page_template',        'elementor_canvas' );
 
 	$log[] = '✅ Elementor data saved to page ' . $page_id;
@@ -650,11 +650,8 @@ if ( $page_id ) {
 	update_option( 'page_on_front', $page_id );
 	$log[] = '✅ Set page ' . $page_id . ' as site front page';
 
-	// Flush Elementor cache for this post
-	if ( class_exists( '\Elementor\Plugin' ) ) {
-		\Elementor\Plugin::$instance->files_manager->clear_cache();
-		$log[] = '✅ Elementor cache cleared';
-	}
+	// Cache cleared separately via northline-fix.php to avoid PHP 8 TypeError during setup
+	$log[] = 'ℹ️ Skipped cache clear (run northline-fix.php after if needed)';
 }
 
 // ===========================================================================
@@ -730,16 +727,13 @@ if ( $kit_id ) {
 		],
 	];
 
-	// Merge with existing kit settings to avoid overwriting other settings
+	// _elementor_page_settings must be a PHP array, NOT json string
 	$existing_kit = get_post_meta( $kit_id, '_elementor_page_settings', true );
-	$kit_settings = $existing_kit ? json_decode( $existing_kit, true ) : [];
-	if ( ! is_array( $kit_settings ) ) {
-		$kit_settings = [];
-	}
+	$kit_settings = is_array( $existing_kit ) ? $existing_kit : [];
 	$kit_settings['custom_colors']     = $global_colors;
 	$kit_settings['custom_typography'] = $global_fonts;
 
-	update_post_meta( $kit_id, '_elementor_page_settings', wp_json_encode( $kit_settings ) );
+	update_post_meta( $kit_id, '_elementor_page_settings', $kit_settings );
 
 	$log[] = '✅ Elementor Kit (' . $kit_id . ') global colors + fonts saved';
 }

@@ -163,6 +163,18 @@ html {
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
 }
+/* aspect-ratio containers: img must be absolute to fill correctly */
+[style*="aspect-ratio"] {
+  position: relative;
+}
+[style*="aspect-ratio"] > img {
+  position: absolute !important;
+  top: 0; left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block;
+}
 </style>
 	<?php
 }, 1 );
