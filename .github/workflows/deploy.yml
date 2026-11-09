@@ -1,0 +1,101 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'wp-content/mu-plugins/northline-assets/**'
+      - 'wp-content/mu-plugins/northline-assets.php'
+      - 'deploy/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+
+      - name: PHP syntax (mu-plugins)
+        run: |
+          fail=0
+          while IFS= read -r -d '' f; do
+            php -l "$f" >/dev/null || { echo "::error file=$f::PHP syntax error"; fail=1; }
+          done < <(find wp-content/mu-plugins/northline-assets -name '*.php' -print0)
+          php -l wp-content/mu-plugins/northline-assets.php >/dev/null || { echo "::error::PHP syntax error in northline-assets.php loader"; fail=1; }
+          exit $fail
+
+      - name: Shell syntax (deploy scripts)
+        run: for f in deploy/*.sh; do bash -n "$f"; done
+
+      - name: Reject hard-coded secrets
+        run: |
+          if grep -rInE "(password|passwd|secret|api[_-]?key|private[_ -]?key)['\"]?\s*[:=]>?\s*['\"][^'\"]{8,}['\"]" wp-content/mu-plugins/northline-assets; then
+            echo "::error::possible hard-coded secret in mu-plugins"; exit 1
+          fi
+
+  deploy:
+    name: Deploy
+    needs: lint
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > "$RUNNER_TEMP/deploy_key"
+          chmod 600 "$RUNNER_TEMP/deploy_key"
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > "$RUNNER_TEMP/known_hosts"
+
+      - name: Debug SSH
+        env:
+          DEPLOY_HOST: ${{ secrets.SSH_HOST }}
+          DEPLOY_USER: ${{ secrets.SSH_USER }}
+        run: |
+          echo "=== key line count ==="
+          wc -l "$RUNNER_TEMP/deploy_key"
+          head -1 "$RUNNER_TEMP/deploy_key"
+          tail -1 "$RUNNER_TEMP/deploy_key"
+          ssh -v \
+            -i "$RUNNER_TEMP/deploy_key" \
+            -o IdentitiesOnly=yes \
+            -o UserKnownHostsFile="$RUNNER_TEMP/known_hosts" \
+            -o StrictHostKeyChecking=yes \
+            -o BatchMode=yes \
+            "$DEPLOY_USER@$DEPLOY_HOST" whoami 2>&1 || true
+
+      - name: Deploy northline-assets (backup, rsync, health check, auto-rollback)
+        env:
+          DEPLOY_HOST: ${{ secrets.SSH_HOST }}
+          DEPLOY_USER: ${{ secrets.SSH_USER }}
+          SITE_URL: ${{ secrets.SITE_URL }}
+          REMOTE_ROOT: ${{ secrets.REMOTE_ROOT }}
+          MU_PLUGIN_DIR: northline-assets
+          PROJECT: northline
+          HEALTH_MARKER: nl-assets
+          HEALTH_PATH: /
+          SSH_OPTS: -i ${{ runner.temp }}/deploy_key -o IdentitiesOnly=yes -o UserKnownHostsFile=${{ runner.temp }}/known_hosts -o StrictHostKeyChecking=yes
+        run: bash deploy/deploy.sh
+
+      - name: Remove key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/deploy_key" "$RUNNER_TEMP/known_hosts"
