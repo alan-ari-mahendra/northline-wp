@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # Provision a WordPress project on the shared VPS. Idempotent; safe to run again.
 # Run as root on the VPS (from the repo root, locally):
-#   ssh sukun-vps-brata 'DEPLOY_PUBKEY="ssh-ed25519 AAAA..." PROJECT=marlow-house SITE_PORT=8636 bash -s' < deploy/server-setup.sh
+#   ssh sukun-vps-brata 'DEPLOY_PUBKEY="ssh-ed25519 AAAA..." PROJECT=northline SITE_PORT=8638 bash -s' < deploy/server-setup.sh
 #
 # Per project it creates: /var/www/$PROJECT, php-fpm pool + socket, MySQL db/user, nginx vhost on $SITE_PORT, WP-Cron entry.
 set -euo pipefail
 : "${DEPLOY_PUBKEY:?set DEPLOY_PUBKEY}"
-PROJECT="${PROJECT:-marlow-house}"
+PROJECT="${PROJECT:-northline}"
 [[ "$PROJECT" =~ ^[a-z0-9-]+$ ]] || { echo "PROJECT must match [a-z0-9-]+"; exit 1; }
-SITE_PORT="${SITE_PORT:-8636}"
+SITE_PORT="${SITE_PORT:-8638}"
 [[ "$SITE_PORT" =~ ^[0-9]+$ ]] && [ "$SITE_PORT" -ge 1 ] && [ "$SITE_PORT" -le 65535 ] || { echo "bad SITE_PORT"; exit 1; }
 SERVER_NAME="${SERVER_NAME:-${SITE_IP:-46.250.232.141}}"
 OPEN_FIREWALL="${OPEN_FIREWALL:-1}"

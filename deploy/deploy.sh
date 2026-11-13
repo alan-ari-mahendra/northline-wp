@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-# Deploy wp-content/mu-plugins/marlow-house-assets (and optionally a theme or plugin) to the server.
-#   DEPLOY_HOST=<ip> DEPLOY_USER=deploy SSH_OPTS="-i ~/.ssh/marlow-house-deploy" ./deploy/deploy.sh
+# Deploy wp-content/mu-plugins/northline-assets (and optionally a theme or plugin) to the server.
+#   DEPLOY_HOST=<ip> DEPLOY_USER=deploy SSH_OPTS="-i ~/.ssh/northline-deploy" ./deploy/deploy.sh
 # Backs up current dir, rsyncs, flushes caches, runs health check, rolls back on failure.
 set -euo pipefail
 trim() { printf '%s' "$1" | tr -d '\r\n' | sed -E 's/^[[:space:]]+//; s/[[:space:]]+$//'; }
 HOST="$(trim "${DEPLOY_HOST:?DEPLOY_HOST required}")"
 DUSER="$(trim "${DEPLOY_USER:-deploy}")"; DUSER="${DUSER:-deploy}"
 SITE_URL="$(trim "${SITE_URL:-}")"; SITE_URL="${SITE_URL:-http://$HOST}"
-REMOTE_ROOT="$(trim "${REMOTE_ROOT:-}")"; REMOTE_ROOT="${REMOTE_ROOT:-/var/www/marlow-house}"
+REMOTE_ROOT="$(trim "${REMOTE_ROOT:-}")"; REMOTE_ROOT="${REMOTE_ROOT:-/var/www/northline}"
 SITE_PORT="$(trim "${SITE_PORT:-}")"
-MU_PLUGIN_DIR="$(trim "${MU_PLUGIN_DIR:-}")"; MU_PLUGIN_DIR="${MU_PLUGIN_DIR:-marlow-house-assets}"
+MU_PLUGIN_DIR="$(trim "${MU_PLUGIN_DIR:-}")"; MU_PLUGIN_DIR="${MU_PLUGIN_DIR:-northline-assets}"
 PLUGIN_DIR="$(trim "${PLUGIN_DIR:-}")"
 THEME_DIR="$(trim "${THEME_DIR:-}")"
 [[ "$REMOTE_ROOT" =~ ^/[A-Za-z0-9._/-]+$ && "$REMOTE_ROOT" != *..* ]] || { echo "::error::REMOTE_ROOT must be an absolute path like /var/www/my-site (got '${REMOTE_ROOT}')"; exit 2; }
