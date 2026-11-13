@@ -8,10 +8,12 @@
 defined( 'ABSPATH' ) || exit;
 
 define( 'NL_SETUP_KEY', 'nl_setup_v1' );
+define( 'NL_DATA_VERSION', '3.4' );
 
 /* ===== SETUP (runs once on first request) ===== */
 
 add_action( 'init', 'nl_run_setup', 20 );
+add_action( 'init', 'nl_maybe_update_data', 25 );
 
 function nl_run_setup() {
 	if ( get_option( NL_SETUP_KEY ) ) {
@@ -29,6 +31,29 @@ function nl_run_setup() {
 		update_option( 'page_on_front', $page_id );
 		update_option( NL_SETUP_KEY, $page_id );
 	}
+}
+
+function nl_maybe_update_data() {
+	$page_id = (int) get_option( NL_SETUP_KEY );
+	if ( ! $page_id ) {
+		return;
+	}
+	if ( get_option( 'nl_data_version' ) === NL_DATA_VERSION ) {
+		return;
+	}
+
+	$data = nl_build_elementor_data();
+	update_post_meta( $page_id, '_elementor_data', wp_slash( wp_json_encode( $data ) ) );
+	delete_post_meta( $page_id, '_elementor_css' );
+	// Delete filesystem CSS cache so Elementor regenerates on next load.
+	$css_file = WP_CONTENT_DIR . '/uploads/elementor/css/post-' . $page_id . '.css';
+	if ( file_exists( $css_file ) ) {
+		@unlink( $css_file );
+	}
+	if ( class_exists( '\Elementor\Plugin' ) && isset( \Elementor\Plugin::$instance->files_manager ) ) {
+		\Elementor\Plugin::$instance->files_manager->clear_cache();
+	}
+	update_option( 'nl_data_version', NL_DATA_VERSION );
 }
 
 /* ===== ASSETS ===== */
@@ -61,8 +86,8 @@ function nl_enqueue_assets() {
 		null
 	);
 
-	wp_enqueue_style( 'nl-styles', $base . 'northline.css', [ 'nl-google-fonts', 'nl-material-symbols' ], '1.0.0' );
-	wp_enqueue_script( 'nl-scripts', $base . 'northline.js', [], '1.0.0', true );
+	wp_enqueue_style( 'nl-styles', $base . 'northline.css', [ 'nl-google-fonts', 'nl-material-symbols' ], '1.0.5' );
+	wp_enqueue_script( 'nl-scripts', $base . 'northline.js', [], '1.0.3', true );
 }
 
 function nl_body_class( $classes ) {
@@ -227,38 +252,55 @@ HTML;
 
 function nl_html_hero() {
 	return <<<'HTML'
-<section class="nl-hero">
-  <div class="nl-wrap">
-    <div class="nl-hero-grid">
-      <div class="nl-hero-left">
-        <div>
-          <span class="nl-eyebrow">Operational Diagnostics &amp; Workflow Realignment</span>
-          <h1>Your business grew. Your operations didn't.</h1>
-          <p class="nl-hero-body">We fix the handoffs, processes, and tools that slow growing UK companies down — cleanly and without six-month advisory programmes.</p>
-        </div>
-        <div class="nl-cta-row">
-          <a class="nl-btn-primary" href="#contact">Book a Discovery Call</a>
-          <a class="nl-link-arrow" href="#approach">
-            <span>See how we work</span>
-            <span class="material-symbols-outlined">arrow_forward</span>
-          </a>
-        </div>
-      </div>
-      <div class="nl-hero-right">
-        <div class="nl-photo-frame">
-          <div class="nl-photo-box">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa7lkh5E9R6c9NEfAIPR-31Mq-QsLUxoEmCtkS_QSHZYkp-pWcXQbAMoFTHnuJdFPc1yhRh8702Dsjff8htXW25204FwCE-DKkuUdbofwnuVXQga6V6pzs_FKtJf266IMejNtFEJbRgjlztEc_tiuqIK8-7YY4riLg-G59LLdqwK2c3F4UOHLKF1h_X_MWMem-OCt0ZM9DuzemF0AV7REZTyFTn9Mg10dWrJBPd6XY" alt="Manchester office">
-            <div class="nl-photo-caption">LOC: Manchester · Studio Desk</div>
-          </div>
-          <div class="nl-photo-meta">
-            <span>Fig 1.0 — Field Observations</span>
-            <span>Unvarnished Diagnosis</span>
-          </div>
+<div class="flex flex-col w-full bg-[#FAFAF7] text-primary">
+<section class="max-w-[1280px] w-full mx-auto px-gutter lg:px-margin-desktop pt-space-xl lg:pt-space-2xl pb-space-3xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-gutter-desktop items-start">
+
+  <!-- Left: 7 cols -->
+  <div class="lg:col-span-7 flex flex-col justify-between pr-0 lg:pr-space-md">
+    <div>
+      <span class="font-label-editorial text-label-editorial uppercase tracking-widest text-outline block mb-space-md">OPERATIONAL DIAGNOSTICS &amp; WORKFLOW REALIGNMENT</span>
+      <h1 class="font-display-xl text-display-xl text-primary font-normal tracking-tight leading-none mb-space-lg max-w-xl">
+        Your business grew. Your operations didn't.
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed mb-space-2xl">We fix the handoffs, processes, and tools that slow growing UK companies down &mdash; cleanly and without six-month advisory programmes.</p>
+    </div>
+    <div class="flex flex-col sm:flex-row sm:items-center gap-space-lg pt-space-md">
+      <a class="inline-flex items-center justify-center bg-primary-container text-surface-container-lowest font-label-editorial text-label-editorial uppercase tracking-widest px-space-xl py-space-md hover:bg-primary transition-colors" href="#contact">
+        Book a Discovery Call
+      </a>
+      <a class="inline-flex items-center gap-space-xs font-body-sm text-body-sm text-primary hover:text-secondary group transition-colors" href="#approach">
+        <span class="underline decoration-tertiary-fixed-dim underline-offset-8 group-hover:decoration-primary">See how we work</span>
+        <span class="material-symbols-outlined text-[16px] text-primary transition-transform group-hover:translate-x-1">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Right: 5 cols — editorial photo frame -->
+  <div class="lg:col-span-5 mt-space-xl lg:mt-0 flex flex-col">
+    <div class="bg-surface-container-lowest p-space-sm">
+      <div class="relative w-full bg-surface-container overflow-hidden" style="aspect-ratio:4/5">
+        <img
+          alt="Manchester office"
+          class="w-full object-cover grayscale contrast-[1.05]"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa7lkh5E9R6c9NEfAIPR-31Mq-QsLUxoEmCtkS_QSHZYkp-pWcXQbAMoFTHnuJdFPc1yhRh8702Dsjff8htXW25204FwCE-DKkuUdbofwnuVXQga6V6pzs_FKtJf266IMejNtFEJbRgjlztEc_tiuqIK8-7YY4riLg-G59LLdqwK2c3F4UOHLKF1h_X_MWMem-OCt0ZM9DuzemF0AV7REZTyFTn9Mg10dWrJBPd6XY"
+          loading="eager"
+        >
+        <div class="absolute bottom-3 left-3 bg-surface-container-lowest/90 px-space-sm py-0.5">
+          <span class="font-label-editorial text-label-editorial uppercase text-on-surface tracking-widest text-[10px]">LOC: MANCHESTER &middot; STUDIO DESK</span>
         </div>
       </div>
     </div>
+    <div class="flex items-center justify-between mt-space-sm text-on-surface-variant">
+      <span class="font-label-editorial text-label-editorial uppercase tracking-wider text-outline text-[10px]">FIG 1.0 &mdash; FIELD OBSERVATIONS</span>
+      <span class="font-label-editorial text-label-editorial uppercase tracking-wider text-outline text-[10px]">UNVARNISHED DIAGNOSIS</span>
+    </div>
   </div>
+
+</div>
 </section>
+</div>
 HTML;
 }
 
@@ -488,8 +530,8 @@ function nl_html_about() {
   <div class="nl-wrap">
     <div class="nl-about-grid">
       <div class="nl-about-photo">
-        <div class="nl-about-photo-box">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCebdvuJPKzNBxaXYRapIQd_Zo5hnl4x2435tfArr38rXwhRGzi9nL8UH72A1vYRX3NyK-8tbYQQzVR0fegzyaEACk-yOQsqjM4IPipTNRm2xuoor5baIfzNeoBMmA1GtkMOFg8uXRMxeivnUoKNmlwOAKf5Al_iSyKAa2JQ0CzvF7mNQ8HIHqL6VkzLTBfJqtcPbLaefkDQPN-WEO9xuYYurDCgxeRCTwBCQWbKfCx" alt="Founder — lead practitioner">
+        <div class="nl-about-photo-box" style="aspect-ratio:4/5">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCebdvuJPKzNBxaXYRapIQd_Zo5hnl4x2435tfArr38rXwhRGzi9nL8UH72A1vYRX3NyK-8tbYQQzVR0fegzyaEACk-yOQsqjM4IPipTNRm2xuoor5baIfzNeoBMmA1GtkMOFg8uXRMxeivnUoKNmlwOAKf5Al_iSyKAa2JQ0CzvF7mNQ8HIHqL6VkzLTBfJqtcPbLaefkDQPN-WEO9xuYYurDCgxeRCTwBCQWbKfCx" alt="Founder — lead practitioner" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover">
           <div class="nl-photo-caption">Founder · Lead Practitioner</div>
         </div>
       </div>

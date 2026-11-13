@@ -127,7 +127,7 @@ body.elementor-template-canvas { background: #f9f9ff !important; }
   color: #ffffff;
   font-family: 'DM Sans', sans-serif;
   font-size: 11px; line-height: 16px;
-  letter-spacing: 0.08em; font-weight: 500;
+  letter-spacing: 0.1em; font-weight: 500;
   text-transform: uppercase;
   padding: var(--nl-sm) var(--nl-lg);
   text-decoration: none;
@@ -173,12 +173,13 @@ body.elementor-template-canvas { background: #f9f9ff !important; }
 
 .nl-hero-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--nl-lg);
+  grid-template-columns: 7fr 5fr;
+  gap: var(--nl-xl);
   align-items: start;
 }
-@media (min-width: 1024px) {
-  .nl-hero-grid { grid-template-columns: 7fr 5fr; gap: var(--nl-xl); }
+.nl-hero-left, .nl-hero-right { min-width: 0; }
+@media (max-width: 1023px) {
+  .nl-hero-grid { grid-template-columns: 1fr; gap: var(--nl-lg); }
 }
 
 .nl-hero-left {
@@ -198,14 +199,14 @@ body.elementor-template-canvas { background: #f9f9ff !important; }
 
 .nl-hero h1 {
   font-family: 'Newsreader', serif;
-  font-size: 56px; line-height: 64px;
-  letter-spacing: -0.02em; font-weight: 400;
+  font-size: 56px; line-height: 1;
+  letter-spacing: -0.025em; font-weight: 400;
   color: var(--nl-primary);
   margin: 0 0 var(--nl-lg);
   max-width: 36rem;
 }
 @media (max-width: 767px) {
-  .nl-hero h1 { font-size: 38px; line-height: 46px; letter-spacing: -0.015em; }
+  .nl-hero h1 { font-size: 38px; letter-spacing: -0.015em; }
 }
 
 .nl-hero-body {
@@ -229,7 +230,7 @@ body.elementor-template-canvas { background: #f9f9ff !important; }
   color: #ffffff;
   font-family: 'DM Sans', sans-serif;
   font-size: 11px; line-height: 16px;
-  letter-spacing: 0.08em; font-weight: 500;
+  letter-spacing: 0.1em; font-weight: 500;
   text-transform: uppercase;
   padding: var(--nl-md) var(--nl-xl);
   text-decoration: none;
@@ -917,3 +918,286 @@ body.elementor-template-canvas { background: #f9f9ff !important; }
    Utility
    ============================================================ */
 .nl-wrap-pad { padding: var(--nl-2xl) 0; }
+
+/* ============================================================
+   NATIVE CONTAINER OVERRIDES
+   Elementor wraps container children in .e-con-inner. These rules
+   move grid/flex layout to .e-con-inner so children participate
+   in the correct formatting context.
+   ============================================================ */
+
+/* Full-width section containers */
+.nl-hero > .e-con-inner,
+.nl-familiar > .e-con-inner,
+.nl-services > .e-con-inner,
+.nl-approach > .e-con-inner,
+.nl-work > .e-con-inner,
+.nl-about > .e-con-inner,
+.nl-contact > .e-con-inner,
+.nl-footer > .e-con-inner { width: 100%; }
+
+/* Hero 7:5 grid */
+.nl-hero-grid > .e-con-inner {
+  display: grid !important;
+  grid-template-columns: 7fr 5fr;
+  gap: var(--nl-xl);
+  align-items: start;
+  width: 100%;
+}
+@media (max-width: 1023px) {
+  .nl-hero-grid > .e-con-inner { grid-template-columns: 1fr; gap: var(--nl-lg); }
+}
+
+/* 3-column card grids */
+.nl-cards-3 > .e-con-inner {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--nl-lg);
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .nl-cards-3 > .e-con-inner { grid-template-columns: 1fr; }
+}
+
+/* 4-column steps */
+.nl-steps > .e-con-inner {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--nl-lg);
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .nl-steps > .e-con-inner { grid-template-columns: 1fr; }
+}
+
+/* 2-column cases */
+.nl-cases > .e-con-inner {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--nl-xl);
+  width: 100%;
+}
+@media (max-width: 1023px) {
+  .nl-cases > .e-con-inner { grid-template-columns: 1fr; gap: var(--nl-lg); }
+}
+
+/* About 5:7 grid */
+.nl-about-grid > .e-con-inner {
+  display: grid !important;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--nl-xl);
+  align-items: start;
+  width: 100%;
+}
+@media (max-width: 1023px) {
+  .nl-about-grid > .e-con-inner { grid-template-columns: 1fr; gap: var(--nl-lg); }
+}
+
+/* Contact 5:7 grid */
+.nl-contact-grid > .e-con-inner {
+  display: grid !important;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--nl-xl);
+  width: 100%;
+}
+@media (max-width: 1023px) {
+  .nl-contact-grid > .e-con-inner { grid-template-columns: 1fr; gap: var(--nl-lg); }
+}
+
+/* Services header 4:8 grid */
+.nl-services-header > .e-con-inner {
+  display: grid !important;
+  grid-template-columns: 4fr 8fr;
+  gap: var(--nl-xl);
+  align-items: flex-end;
+  width: 100%;
+}
+@media (max-width: 1023px) {
+  .nl-services-header > .e-con-inner { grid-template-columns: 1fr; gap: var(--nl-md); }
+}
+
+/* Footer 3-col grid */
+.nl-footer-grid > .e-con-inner {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--nl-xl);
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .nl-footer-grid > .e-con-inner { grid-template-columns: 1fr; gap: var(--nl-lg); }
+}
+
+/* Section header flex row */
+.nl-section-header > .e-con-inner {
+  display: flex !important;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--nl-lg);
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .nl-section-header > .e-con-inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* Work header flex row */
+.nl-work-header > .e-con-inner {
+  display: flex !important;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--nl-lg);
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .nl-work-header > .e-con-inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* CTA row flex */
+.nl-cta-row > .e-con-inner {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--nl-lg);
+}
+@media (max-width: 639px) {
+  .nl-cta-row > .e-con-inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* Card/step/case containers: flex column, space-between */
+.nl-card > .e-con-inner,
+.nl-service-card > .e-con-inner,
+.nl-step > .e-con-inner,
+.nl-case > .e-con-inner {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  min-height: inherit;
+}
+
+/* About right column */
+.nl-about-right > .e-con-inner,
+.nl-contact-left > .e-con-inner {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Pull-quote, contact-inner full width */
+.nl-pullquote > .e-con-inner,
+.nl-contact-inner > .e-con-inner { width: 100%; }
+
+/* Footer brand column */
+.nl-footer-brand > .e-con-inner {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--nl-md);
+  width: 100%;
+}
+
+/* Approach intro max-width */
+.nl-approach-intro > .e-con-inner { max-width: 36rem; width: 100%; }
+
+/* ============================================================
+   HERO HEADING — force 1:1 match with reference
+   Elementor-generated CSS has higher specificity than .nl-hero h1,
+   so !important is required here.
+   ============================================================ */
+.nl-hero .elementor-heading-title {
+  line-height: 1 !important;
+  letter-spacing: -0.025em !important;
+  max-width: 36rem;
+}
+@media (max-width: 767px) {
+  .nl-hero .elementor-heading-title {
+    line-height: 1 !important;
+    letter-spacing: -0.015em !important;
+  }
+}
+
+/* ============================================================
+   HERO CTA BUTTON — kit accent color (#61CE70) overrides
+   per-element background; force dark navy here.
+   ============================================================ */
+.nl-cta-row .elementor-button {
+  background-color: #14213d !important;
+  color: #ffffff !important;
+}
+.nl-cta-row .elementor-button:hover,
+.nl-cta-row .elementor-button:focus {
+  background-color: #000a24 !important;
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   PHOTO BOX — aspect-ratio height doesn't resolve height:100%
+   on img in some layout contexts; force absolute fill.
+   ============================================================ */
+.nl-photo-box {
+  position: relative;
+}
+.nl-photo-box img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* ============================================================
+   HERO SECTION — ELEMENTOR CONTAINER LAYOUT
+   ============================================================ */
+
+/* Inner max-width wrapper */
+.e-con.nl-wrap > .e-con-inner {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--nl-lg);
+  padding-right: var(--nl-lg);
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .e-con.nl-wrap > .e-con-inner {
+    padding-left: var(--nl-2xl);
+    padding-right: var(--nl-2xl);
+  }
+}
+
+/* 7:5 hero row */
+.nl-hero-row > .e-con-inner {
+  display: flex !important;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--nl-xl);
+  width: 100%;
+}
+.nl-hero-row > .e-con-inner > .e-con.nl-hero-left { flex: 7 7 0%; min-width: 0; }
+.nl-hero-row > .e-con-inner > .e-con.nl-hero-right { flex: 5 5 0%; min-width: 0; }
+@media (max-width: 1023px) {
+  .nl-hero-row > .e-con-inner { flex-direction: column; gap: var(--nl-lg); }
+  .nl-hero-row > .e-con-inner > .e-con.nl-hero-left,
+  .nl-hero-row > .e-con-inner > .e-con.nl-hero-right { flex: 0 0 100%; }
+}
+
+/* nl-hero class on outer section: button to inherit primary CTA style */
+.nl-btn-primary .elementor-button {
+  background: var(--nl-ink) !important;
+  color: #ffffff !important;
+  border-radius: 0 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important; line-height: 16px !important;
+  letter-spacing: 0.08em !important; font-weight: 500 !important;
+  text-transform: uppercase !important;
+  padding: var(--nl-md) var(--nl-xl) !important;
+  border: 1px solid var(--nl-ink) !important;
+  transition: background 0.2s !important;
+}
+.nl-btn-primary .elementor-button:hover { background: var(--nl-primary) !important; color: #fff !important; }

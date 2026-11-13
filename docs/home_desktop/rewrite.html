@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClearFlow Plumbing · Brisbane</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Montserrat, sans-serif;
+      color: #1A1A1A;
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: #00699B; }
+    a:hover { color: #1A1A1A; }
+
+    /* ── Tokens ── */
+    :root {
+      --blue:   #007DB8;
+      --red:    #E42413;
+      --red-dk: #C41E10;
+      --gold:   #F1B130;
+      --dark:   #1A1A1A;
+      --gray:   #4A4A4A;
+      --muted:  #595959;
+      --rule:   #ECECEC;
+      --bg-lt:  #F4F4F4;
+      --white:  #ffffff;
+      --max-w:  1380px;
+      --px:     clamp(20px, 4vw, 48px);
+    }
+
+    /* ── Layout helpers ── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding-left: var(--px);
+      padding-right: var(--px);
+    }
+
+    /* ── Image placeholder ── */
+    .img-placeholder {
+      background: repeating-linear-gradient(135deg, #ECECEC 0 12px, #E3E3E3 12px 24px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 22px;
+    }
+    .img-placeholder span {
+      font: 600 12px/1 Montserrat, sans-serif;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #595959;
+      background: #fff;
+      padding: 8px 12px;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      font: 700 17px/1 Montserrat, sans-serif;
+      border-radius: 999px;
+      cursor: pointer;
+      border: none;
+      transition: background .15s, color .15s;
+    }
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      padding: 19px 28px;
+    }
+    .btn-primary:hover { background: var(--red-dk); color: var(--white); }
+    .btn-outline {
+      border: 2px solid var(--white);
+      color: var(--white);
+      padding: 17px 24px;
+    }
+    .btn-outline:hover { background: var(--white); color: var(--blue); }
+
+    /* ── Section headings ── */
+    .section-title {
+      margin: 0;
+      font: 700 clamp(1.9rem, 1.2rem + 2.2vw, 3.1rem)/1.05 Montserrat, sans-serif;
+      letter-spacing: -.01em;
+    }
+
+    /* ── Topbar ── */
+    .topbar {
+      background: #fff;
+      border-bottom: 1px solid #E0E0E0;
+      overflow: hidden;
+    }
+    .topbar__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--px);
+      height: clamp(60px, calc(2.5vw + 36px), 84px);
+      display: flex;
+      align-items: stretch;
+    }
+    .topbar__logo-wrap {
+      flex: none;
+      align-self: center;
+      margin-right: clamp(24px, 4vw, 72px);
+    }
+    .topbar__logo {
+      font: 700 clamp(21px, calc(1vw + 15px), 26px)/1 Montserrat, sans-serif;
+      letter-spacing: -.015em;
+      color: #1A1A1A;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .topbar__logo-mark {
+      width: 11px;
+      height: 1em;
+      background: var(--blue);
+      display: block;
+      transform: skewX(-20deg);
+    }
+    .topbar__panel {
+      flex: 1;
+      min-width: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .topbar__panel::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: -100vw;
+      background: var(--red);
+      border-top-left-radius: 36px;
+      transform: skewX(-20deg);
+      transform-origin: left bottom;
+    }
+    .topbar__link {
+      position: relative;
+      padding-left: clamp(32px, 3vw, 52px);
+      color: #fff;
+      text-decoration: none;
+      font: italic 500 clamp(16px, calc(.6vw + 11px), 22px)/1.2 Montserrat, sans-serif;
+      white-space: nowrap;
+    }
+
+    /* ── Header / Nav ── */
+    .header {
+      background: #fff;
+      border-bottom: 1px solid var(--rule);
+    }
+    .header__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 10px var(--px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .nav__menu {
+      display: flex;
+      gap: 28px;
+      font: 700 15px/1 Montserrat, sans-serif;
+    }
+    .nav__link {
+      color: #1A1A1A;
+      text-decoration: none;
+    }
+    .nav__link:hover { color: var(--blue); }
+    .nav__cta {
+      background: var(--red);
+      color: #fff;
+      text-decoration: none;
+      font: 700 15px/1 Montserrat, sans-serif;
+      padding: 14px 22px;
+      border-radius: 10px;
+    }
+    .nav__cta:hover { background: var(--red-dk); color: #fff; }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--blue);
+      color: #fff;
+    }
+    .hero__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: clamp(40px, 6vw, 88px) var(--px);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+      gap: clamp(32px, 5vw, 72px);
+      align-items: center;
+    }
+    .hero__content {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .hero__title {
+      margin: 0;
+      font: 700 clamp(2.3rem, calc(1.3rem + 3.4vw), 4.4rem)/1.02 Montserrat, sans-serif;
+      letter-spacing: -.015em;
+      text-wrap: balance;
+    }
+    .hero__sub {
+      margin: 0;
+      font-size: clamp(1.05rem, calc(.95rem + .4vw), 1.25rem);
+      line-height: 1.6;
+      color: #fff;
+      max-width: 36em;
+      text-wrap: pretty;
+    }
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .hero__trust {
+      list-style: none;
+      margin: 4px 0 0;
+      padding: 20px 0 0;
+      border-top: 1px solid rgba(255, 255, 255, .3);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 28px;
+      font: 700 14px/1.3 Montserrat, sans-serif;
+    }
+    .hero__trust li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero__media {
+      margin: 0;
+      position: relative;
+      min-height: clamp(320px, 42vw, 580px);
+      border-radius: 22px;
+      overflow: hidden;
+    }
+    .hero__media-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: clamp(320px, 42vw, 580px);
+      background: repeating-linear-gradient(135deg, #ECECEC 0 12px, #E3E3E3 12px 24px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 22px;
+    }
+    .hero__badge {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: var(--gold);
+      color: #1A1A1A;
+      padding: 18px 22px;
+      border-top-right-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .hero__badge-num { font: 700 28px/1 Montserrat, sans-serif; }
+    .hero__badge-label { font-size: 13px; font-weight: 600; }
+
+    /* ── Services ── */
+    .services {
+      background: var(--bg-lt);
+    }
+    .services__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: clamp(56px, 7vw, 104px) var(--px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(32px, 4vw, 52px);
+    }
+    .services__head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px 48px;
+    }
+    .services__head p {
+      margin: 0;
+      color: var(--gray);
+      line-height: 1.6;
+      max-width: 30em;
+    }
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: #fff;
+      padding: 32px 28px;
+      border-radius: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-decoration: none;
+      color: #1A1A1A;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .service-card:hover {
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .12);
+      transform: translateY(-3px);
+    }
+    .service-card__icon {
+      width: 52px;
+      height: 52px;
+      background: var(--blue);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+    }
+    .service-card__title {
+      margin: 0;
+      font: 700 21px/1.2 Montserrat, sans-serif;
+    }
+    .service-card__text {
+      margin: 0;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+    .service-card__more {
+      margin-top: auto;
+      font: 700 14px/1 Montserrat, sans-serif;
+      color: var(--red);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── Stats / Why ClearFlow ── */
+    .stats {
+      background: var(--blue);
+      color: #fff;
+    }
+    .stats__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: clamp(56px, 7vw, 100px) var(--px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(36px, 4vw, 56px);
+    }
+    .stats__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 40px 32px;
+    }
+    .stat {
+      border-top: 4px solid var(--gold);
+      padding-top: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .stat__number {
+      font: 700 clamp(2.6rem, calc(1.8rem + 2.6vw), 4.2rem)/1 Montserrat, sans-serif;
+      letter-spacing: -.02em;
+    }
+    .stat__label {
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    /* ── Our Work ── */
+    .work {
+      background: #fff;
+    }
+    .work__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: clamp(56px, 7vw, 104px) var(--px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(32px, 4vw, 48px);
+    }
+    .work__head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px 48px;
+    }
+    .work__head p {
+      margin: 0;
+      color: var(--gray);
+      line-height: 1.6;
+      max-width: 30em;
+    }
+    .work__grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-auto-rows: minmax(260px, auto);
+      gap: 12px;
+    }
+    .work-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      background: repeating-linear-gradient(135deg, #ECECEC 0 12px, #E3E3E3 12px 24px);
+    }
+    .work-item__label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      font: 600 12px/1 Montserrat, sans-serif;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #595959;
+      background: #fff;
+      padding: 8px 12px;
+    }
+    .work-item__caption {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: var(--blue);
+      color: #fff;
+      padding: 12px 16px;
+      border-top-right-radius: 16px;
+      font: 700 15px/1.3 Montserrat, sans-serif;
+    }
+
+    /* Before/After slider (static representation) */
+    .ba-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      min-height: 320px;
+    }
+    .ba-item__after {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(135deg, #ECECEC 0 12px, #E3E3E3 12px 24px);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 8%;
+    }
+    .ba-item__before {
+      position: absolute;
+      inset: 0;
+      clip-path: inset(0 50% 0 0);
+      background: repeating-linear-gradient(135deg, #CFCFCF 0 12px, #C4C4C4 12px 24px);
+      display: flex;
+      align-items: center;
+      padding: 0 8%;
+    }
+    .ba-item__handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      margin-left: -1.5px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ba-item__handle-btn {
+      flex: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #fff;
+      color: #1A1A1A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+    }
+    .ba-item__img-label {
+      font: 600 12px/1 Montserrat, sans-serif;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      background: #fff;
+      padding: 8px 12px;
+    }
+    .ba-item__caption {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: var(--blue);
+      color: #fff;
+      padding: 12px 16px;
+      border-top-right-radius: 16px;
+      font: 700 15px/1.3 Montserrat, sans-serif;
+    }
+
+    /* ── Reviews ── */
+    .reviews {
+      background: var(--bg-lt);
+    }
+    .reviews__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: clamp(56px, 7vw, 104px) var(--px);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+    .reviews__title {
+      grid-column: 1 / -1;
+    }
+    .review-card {
+      margin: 0;
+      background: #fff;
+      padding: 32px;
+      border-radius: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .review-card__tag {
+      align-self: flex-start;
+      font: 700 11px/1 Montserrat, sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #00699B;
+      border: 1px solid #00699B;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+    .review-card__quote {
+      margin: 0;
+      font: 700 19px/1.45 Montserrat, sans-serif;
+      text-wrap: pretty;
+    }
+    .review-card__author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+    }
+    .review-card__avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 700 15px/1 Montserrat, sans-serif;
+      flex: none;
+    }
+    .review-card__name {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .review-card__name strong { font-weight: 600; }
+    .review-card__name span { font-size: 14px; color: var(--muted); }
+
+    /* ── Service Areas ── */
+    .areas {
+      background: #fff;
+    }
+    .areas__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: clamp(56px, 7vw, 104px) var(--px);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+      gap: clamp(32px, 5vw, 72px);
+      align-items: center;
+    }
+    .areas__content {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .areas__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--rule);
+      font: 700 17px/1.2 Montserrat, sans-serif;
+    }
+    .areas__list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .areas__media {
+      min-height: clamp(280px, 34vw, 460px);
+      border-radius: 22px;
+      background: repeating-linear-gradient(135deg, #ECECEC 0 12px, #E3E3E3 12px 24px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .areas__media span {
+      font: 600 12px/1 Montserrat, sans-serif;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #595959;
+      background: #fff;
+      padding: 8px 12px;
+    }
+
+    /* ── Quote Form ── */
+    .quote {
+      background: var(--bg-lt);
+    }
+    .quote__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: clamp(56px, 7vw, 104px) var(--px);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+      gap: clamp(32px, 5vw, 72px);
+      align-items: start;
+    }
+    .quote__intro {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .quote__title {
+      margin: 0;
+      font: 700 clamp(2.1rem, calc(1.3rem + 2.6vw), 3.6rem)/1.02 Montserrat, sans-serif;
+      letter-spacing: -.015em;
+      text-wrap: balance;
+    }
+    .quote__intro p {
+      margin: 0;
+      color: var(--gray);
+      line-height: 1.6;
+      max-width: 30em;
+    }
+    .quote__call {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #1A1A1A;
+      text-decoration: none;
+      padding: 20px 0;
+      border-top: 1px solid #E0E0E0;
+      border-bottom: 1px solid #E0E0E0;
+    }
+    .quote__call-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--red);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+    }
+    .quote__call-text { display: flex; flex-direction: column; gap: 4px; }
+    .quote__call-hint { font-size: 14px; color: var(--muted); }
+    .quote__call-number { font: 700 22px/1 Montserrat, sans-serif; }
+    .quote__panel {
+      background: #fff;
+      border-radius: 22px;
+      padding: clamp(24px, 3.5vw, 44px);
+      border: 1px solid var(--rule);
+    }
+    .form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 20px;
+    }
+    .form__field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font: 700 14px/1 Montserrat, sans-serif;
+    }
+    .form__field input,
+    .form__field select,
+    .form__field textarea {
+      height: 52px;
+      border: 1px solid #949494;
+      border-radius: 10px;
+      padding: 0 14px;
+      font: 400 16px Montserrat, sans-serif;
+      color: #1A1A1A;
+      background: #fff;
+    }
+    .form__field input:focus,
+    .form__field select:focus,
+    .form__field textarea:focus {
+      outline: 2px solid var(--blue);
+      outline-offset: 1px;
+      border-color: var(--blue);
+    }
+    .form__field textarea {
+      height: auto;
+      padding: 12px 14px;
+      line-height: 1.5;
+      resize: vertical;
+    }
+    .form__full { grid-column: 1 / -1; }
+    .form__urgency {
+      grid-column: 1 / -1;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form__urgency legend {
+      font: 700 14px/1 Montserrat, sans-serif;
+      padding: 0;
+      margin-bottom: 8px;
+    }
+    .form__urgency-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+      gap: 8px;
+    }
+    .form__radio {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 14px;
+      border: 1px solid #949494;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    .form__radio input[type="radio"] {
+      accent-color: var(--blue);
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      height: auto;
+    }
+    .form__upload {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font: 700 14px/1 Montserrat, sans-serif;
+      cursor: pointer;
+    }
+    .form__upload-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 64px;
+      padding: 12px 16px;
+      border: 1px dashed #949494;
+      border-radius: 10px;
+      background: var(--bg-lt);
+      font: 400 15px/1.4 Montserrat, sans-serif;
+      color: var(--gray);
+    }
+    .form__submit {
+      grid-column: 1 / -1;
+      height: 58px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff;
+      font: 700 18px/1 Montserrat, sans-serif;
+      cursor: pointer;
+    }
+    .form__submit:hover { background: var(--red-dk); }
+
+    /* ── Emergency banner ── */
+    .emergency {
+      background: var(--red);
+      color: #fff;
+    }
+    .emergency__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: clamp(40px, 5vw, 64px) var(--px);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px 48px;
+    }
+    .emergency__title {
+      margin: 0;
+      font: 700 clamp(1.7rem, calc(1.1rem + 2vw), 2.9rem)/1.08 Montserrat, sans-serif;
+      letter-spacing: -.01em;
+      max-width: 20em;
+      text-wrap: balance;
+    }
+    .emergency__btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: var(--red);
+      text-decoration: none;
+      font: 700 18px/1 Montserrat, sans-serif;
+      padding: 20px 32px;
+      border-radius: 999px;
+    }
+    .emergency__btn:hover { background: #1A1A1A; color: #fff; }
+
+    /* ── Footer ── */
+    .footer {
+      background: #2B2B2B;
+      color: #D9D9D9;
+    }
+    .footer__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: clamp(56px, 6vw, 88px) var(--px) 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+      gap: 40px 32px;
+    }
+    .footer__col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer__logo {
+      font: 700 24px/1 Montserrat, sans-serif;
+      color: #fff;
+      letter-spacing: -.015em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .footer__logo-mark {
+      width: 10px;
+      height: 22px;
+      background: var(--blue);
+      display: block;
+    }
+    .footer__phone {
+      color: #fff;
+      text-decoration: none;
+      font: 700 18px/1.3 Montserrat, sans-serif;
+    }
+    .footer__email {
+      color: #D9D9D9;
+      text-decoration: none;
+    }
+    .footer__email:hover { color: #fff; }
+    .footer__col h3 {
+      margin: 0 0 6px;
+      font: 700 15px/1 Montserrat, sans-serif;
+      color: #fff;
+    }
+    .footer__col a {
+      color: #D9D9D9;
+      text-decoration: none;
+    }
+    .footer__col a:hover { color: #fff; }
+    .footer__legal {
+      margin: 0;
+      padding-top: 24px;
+      border-top: 1px solid #444444;
+      font-size: 14px;
+    }
+
+    /* ── SVG icon helpers ── */
+    svg { display: inline-block; vertical-align: middle; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     MASTHEAD (topbar + header nav, sticky)
+══════════════════════════════════════════ -->
+<div style="position: sticky; top: 0; z-index: 50;">
+
+  <!-- TOP BAR — red strip with phone number -->
+  <section class="topbar" aria-label="Emergency contact bar">
+    <div class="topbar__inner">
+      <div class="topbar__logo-wrap">
+        <a class="topbar__logo" href="#">
+          <span class="topbar__logo-mark"></span>
+          ClearFlow
+        </a>
+      </div>
+      <div class="topbar__panel">
+        <a class="topbar__link" href="tel:0755501234">
+          24/7 Emergency Plumbing: 07 5550 1234
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEADER — logo + main nav -->
+  <header class="header">
+    <div class="header__inner">
+      <nav class="nav" aria-label="Main navigation">
+        <div class="nav__menu">
+          <a class="nav__link" href="#">Home</a>
+          <a class="nav__link" href="#services">Services</a>
+          <a class="nav__link" href="#work">Our Work</a>
+          <a class="nav__link" href="#areas">Areas</a>
+          <a class="nav__link" href="#contact">Contact</a>
+        </div>
+        <a class="nav__cta" href="#quote">Request a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+</div><!-- /masthead -->
+
+
+<main>
+
+  <!-- ══════════════════════════════════════════
+       HERO — Brisbane plumbers headline
+  ══════════════════════════════════════════ -->
+  <section class="hero" data-section="hero">
+    <div class="hero__inner">
+
+      <!-- Left: headline, sub, CTAs, trust badges -->
+      <div class="hero__content">
+        <h1 class="hero__title">
+          Brisbane plumbers who show up on time and fix it right the first time.
+        </h1>
+        <p class="hero__sub">
+          Blocked drains, hot water, leaks, and gas fitting across Brisbane.
+          Upfront pricing before any work starts.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href="#quote">Request a Quote</a>
+          <a class="btn btn-outline" href="tel:0755501234">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/>
+            </svg>
+            Call 07 5550 1234
+          </a>
+        </div>
+        <ul class="hero__trust">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#F1B130" aria-hidden="true">
+              <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm-1.4 13.6L17.4 8.8 16 7.4l-5.4 5.4-2.6-2.6-1.4 1.4z"/>
+            </svg>
+            Licensed and insured (sample)
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#F1B130" aria-hidden="true">
+              <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm-1.4 13.6L17.4 8.8 16 7.4l-5.4 5.4-2.6-2.6-1.4 1.4z"/>
+            </svg>
+            Upfront fixed pricing
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#F1B130" aria-hidden="true">
+              <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm-1.4 13.6L17.4 8.8 16 7.4l-5.4 5.4-2.6-2.6-1.4 1.4z"/>
+            </svg>
+            Same-day service available
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: hero image placeholder + 60min badge -->
+      <figure class="hero__media">
+        <div class="hero__media-placeholder">
+          <span>Image: plumber at work</span>
+        </div>
+        <figcaption class="hero__badge">
+          <span class="hero__badge-num">60 min</span>
+          <span class="hero__badge-label">Average emergency arrival (sample)</span>
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       SERVICES — What we fix (6 cards)
+  ══════════════════════════════════════════ -->
+  <section id="services" class="services" data-section="services">
+    <div class="services__inner">
+
+      <div class="services__head">
+        <h2 class="section-title">What we fix</h2>
+        <p>Every job is quoted at a fixed price before we start.</p>
+      </div>
+
+      <div class="services__grid">
+
+        <!-- Blocked Drains -->
+        <a class="service-card" href="#">
+          <span class="service-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M2 5h9a5 5 0 0 1 5 5v3h-4v-3a1 1 0 0 0-1-1H2zM10 15h8v2h-8zM12 18h4l-2 4z"/>
+            </svg>
+          </span>
+          <h3 class="service-card__title">Blocked Drains</h3>
+          <p class="service-card__text">CCTV inspection and high-pressure jetting.</p>
+          <span class="service-card__more">
+            Learn more
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M13 5l7 7-7 7-1.4-1.4 4.6-4.6H4v-2h12.2l-4.6-4.6z"/>
+            </svg>
+          </span>
+        </a>
+
+        <!-- Hot Water Systems -->
+        <div class="service-card">
+          <span class="service-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2s-7 7.6-7 13a7 7 0 0 0 14 0c0-5.4-7-13-7-13zm-3 13h2a1 1 0 0 0 1 1v2a3 3 0 0 1-3-3z"/>
+            </svg>
+          </span>
+          <h3 class="service-card__title">Hot Water Systems</h3>
+          <p class="service-card__text">Repairs and replacements for gas, electric, and heat pump units.</p>
+        </div>
+
+        <!-- Leak Detection -->
+        <div class="service-card">
+          <span class="service-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M10 2a8 8 0 0 1 6.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1 1 10 2zm0 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/>
+            </svg>
+          </span>
+          <h3 class="service-card__title">Leak Detection</h3>
+          <p class="service-card__text">Find hidden leaks before they damage walls or floors.</p>
+        </div>
+
+        <!-- Gas Fitting -->
+        <div class="service-card">
+          <span class="service-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2c1 4 6 6.5 6 12a6 6 0 0 1-12 0c0-3 1.8-5 3-6 0 2 1 3.2 2.2 3.2C11.2 8.4 10.4 5 12 2z"/>
+            </svg>
+          </span>
+          <h3 class="service-card__title">Gas Fitting</h3>
+          <p class="service-card__text">Safe installation and repairs for cooktops and heaters.</p>
+        </div>
+
+        <!-- Bathroom Plumbing -->
+        <div class="service-card">
+          <span class="service-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M2 12h20v2a6 6 0 0 1-4 5.6V22h-2v-2H8v2H6v-2.4A6 6 0 0 1 2 14zM5 5a3 3 0 0 1 6 0h-2a1 1 0 0 0-2 0v6H5z"/>
+            </svg>
+          </span>
+          <h3 class="service-card__title">Bathroom Plumbing</h3>
+          <p class="service-card__text">Rough-in and fit-off for renovations.</p>
+        </div>
+
+        <!-- Roof and Gutters -->
+        <div class="service-card">
+          <span class="service-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 3l10 9h-3v9h-5v-6h-4v6H5v-9H2z"/>
+            </svg>
+          </span>
+          <h3 class="service-card__title">Roof and Gutters</h3>
+          <p class="service-card__text">Leak repairs, gutter replacement, and downpipes.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       STATS — Why ClearFlow (blue bg, 4 stats)
+  ══════════════════════════════════════════ -->
+  <section class="stats" data-section="why-clearflow">
+    <div class="stats__inner">
+      <h2 class="section-title">Why ClearFlow</h2>
+      <div class="stats__grid">
+
+        <div class="stat">
+          <span class="stat__number">60 min</span>
+          <span class="stat__label">Average emergency arrival time (sample)</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat__number">Fixed price</span>
+          <span class="stat__label">You approve the price before we start</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat__number">12 months</span>
+          <span class="stat__label">Workmanship guarantee on every job</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat__number">Clean site</span>
+          <span class="stat__label">We leave your home how we found it</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       OUR WORK — Before/after + photo grid
+  ══════════════════════════════════════════ -->
+  <section id="work" class="work" data-section="our-work">
+    <div class="work__inner">
+
+      <div class="work__head">
+        <h2 class="section-title">Our Work</h2>
+        <p>Drag the sliders to compare before and after. Tap any photo to enlarge.</p>
+      </div>
+
+      <div class="work__grid">
+
+        <!-- Before/After: Hot water replacement, Indooroopilly (spans 7 cols, 2 rows) -->
+        <div class="ba-item" style="grid-column: span 7; grid-row: span 2;">
+          <div class="ba-item__after">
+            <span class="ba-item__img-label" style="color: #595959;">After · hot water system</span>
+          </div>
+          <div class="ba-item__before">
+            <span class="ba-item__img-label" style="color: #1A1A1A;">Before · hot water system</span>
+          </div>
+          <div class="ba-item__handle">
+            <span class="ba-item__handle-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M9 6v12l-6-6zM15 6l6 6-6 6z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="ba-item__caption">Hot water replacement, Indooroopilly</div>
+        </div>
+
+        <!-- Photo: Burst pipe repair, Paddington (spans 5 cols) -->
+        <div class="work-item" style="grid-column: span 5;">
+          <span class="work-item__label">Image: plumbing pipes repair</span>
+          <span class="work-item__caption">Burst pipe repair, Paddington</span>
+        </div>
+
+        <!-- Photo: Bathroom fit-off, Chermside (spans 5 cols) -->
+        <div class="work-item" style="grid-column: span 5;">
+          <span class="work-item__label">Image: plumber at work</span>
+          <span class="work-item__caption">Bathroom fit-off, Chermside</span>
+        </div>
+
+        <!-- Before/After: Blocked sewer line, Carindale (spans 8 cols, 2 rows) -->
+        <div class="ba-item" style="grid-column: span 8; grid-row: span 2;">
+          <div class="ba-item__after">
+            <span class="ba-item__img-label" style="color: #595959;">After · drain cleaning</span>
+          </div>
+          <div class="ba-item__before">
+            <span class="ba-item__img-label" style="color: #1A1A1A;">Before · drain cleaning</span>
+          </div>
+          <div class="ba-item__handle">
+            <span class="ba-item__handle-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M9 6v12l-6-6zM15 6l6 6-6 6z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="ba-item__caption">Blocked sewer line, Carindale</div>
+        </div>
+
+        <!-- Photo: Gutter and downpipe replacement, Wynnum (spans 4 cols) -->
+        <div class="work-item" style="grid-column: span 4;">
+          <span class="work-item__label">Image: brisbane suburb house</span>
+          <span class="work-item__caption">Gutter and downpipe replacement, Wynnum</span>
+        </div>
+
+        <!-- Photo: Heat pump hot water install, North Lakes (spans 4 cols) -->
+        <div class="work-item" style="grid-column: span 4;">
+          <span class="work-item__label">Image: hot water system</span>
+          <span class="work-item__caption">Heat pump hot water install, North Lakes</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       REVIEWS — What Brisbane homeowners say
+  ══════════════════════════════════════════ -->
+  <section class="reviews" data-section="reviews">
+    <div class="reviews__inner">
+
+      <h2 class="section-title reviews__title">What Brisbane homeowners say</h2>
+
+      <!-- Review 1: Mark T. -->
+      <figure class="review-card">
+        <span class="review-card__tag">Sample review</span>
+        <blockquote class="review-card__quote">
+          "Called at 7am with water everywhere, they were here before 8. Fixed price, no surprises."
+        </blockquote>
+        <figcaption class="review-card__author">
+          <span class="review-card__avatar">MT</span>
+          <span class="review-card__name">
+            <strong>Mark T.</strong>
+            <span>Paddington</span>
+          </span>
+        </figcaption>
+      </figure>
+
+      <!-- Review 2: Leanne W. -->
+      <figure class="review-card">
+        <span class="review-card__tag">Sample review</span>
+        <blockquote class="review-card__quote">
+          "Clear explanation of the problem, photos of the blockage, and a fair quote."
+        </blockquote>
+        <figcaption class="review-card__author">
+          <span class="review-card__avatar">LW</span>
+          <span class="review-card__name">
+            <strong>Leanne W.</strong>
+            <span>Chermside</span>
+          </span>
+        </figcaption>
+      </figure>
+
+      <!-- Review 3: James O. -->
+      <figure class="review-card">
+        <span class="review-card__tag">Sample review</span>
+        <blockquote class="review-card__quote">
+          "New hot water system installed same day. Tidy and professional."
+        </blockquote>
+        <figcaption class="review-card__author">
+          <span class="review-card__avatar">JO</span>
+          <span class="review-card__name">
+            <strong>James O.</strong>
+            <span>Wynnum</span>
+          </span>
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       SERVICE AREAS — locations list + image
+  ══════════════════════════════════════════ -->
+  <section id="areas" class="areas" data-section="service-areas">
+    <div class="areas__inner">
+
+      <div class="areas__content">
+        <h2 class="section-title">Service areas</h2>
+        <ul class="areas__list">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#007DB8" aria-hidden="true">
+              <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/>
+            </svg>
+            Brisbane CBD
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#007DB8" aria-hidden="true">
+              <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/>
+            </svg>
+            Paddington
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#007DB8" aria-hidden="true">
+              <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/>
+            </svg>
+            Indooroopilly
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#007DB8" aria-hidden="true">
+              <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/>
+            </svg>
+            Chermside
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#007DB8" aria-hidden="true">
+              <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/>
+            </svg>
+            Carindale
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#007DB8" aria-hidden="true">
+              <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/>
+            </svg>
+            Wynnum
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#007DB8" aria-hidden="true">
+              <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/>
+            </svg>
+            Springwood
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#007DB8" aria-hidden="true">
+              <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/>
+            </svg>
+            North Lakes
+          </li>
+        </ul>
+      </div>
+
+      <div class="areas__media">
+        <span>Image: brisbane suburb house</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       QUOTE FORM — Tell us what's going on
+  ══════════════════════════════════════════ -->
+  <section id="quote" class="quote" data-section="quote-form">
+    <div class="quote__inner">
+
+      <!-- Left: headline + emergency phone -->
+      <div class="quote__intro">
+        <h2 class="quote__title">Tell us what's going on</h2>
+        <p>Send a photo if you can. It helps us quote faster and bring the right parts.</p>
+        <a class="quote__call" href="tel:0755501234">
+          <span class="quote__call-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/>
+            </svg>
+          </span>
+          <span class="quote__call-text">
+            <span class="quote__call-hint">Emergency? Skip the form.</span>
+            <strong class="quote__call-number">07 5550 1234</strong>
+          </span>
+        </a>
+      </div>
+
+      <!-- Right: quote form panel -->
+      <div class="quote__panel">
+        <form class="form" action="#quote" method="post" enctype="multipart/form-data">
+
+          <label class="form__field">
+            Name
+            <input type="text" name="name" required autocomplete="name">
+          </label>
+
+          <label class="form__field">
+            Phone
+            <input type="tel" name="phone" required autocomplete="tel">
+          </label>
+
+          <label class="form__field">
+            Suburb
+            <input type="text" name="suburb" required autocomplete="address-level2">
+          </label>
+
+          <label class="form__field">
+            Job type
+            <select name="job_type" required>
+              <option value="">Select a service</option>
+              <option>Blocked Drains</option>
+              <option>Hot Water Systems</option>
+              <option>Leak Detection</option>
+              <option>Gas Fitting</option>
+              <option>Bathroom Plumbing</option>
+              <option>Roof and Gutters</option>
+            </select>
+          </label>
+
+          <fieldset class="form__urgency">
+            <legend>Urgency</legend>
+            <div class="form__urgency-options">
+              <label class="form__radio">
+                <input type="radio" name="urgency" value="Emergency" required>
+                Emergency
+              </label>
+              <label class="form__radio">
+                <input type="radio" name="urgency" value="This week">
+                This week
+              </label>
+              <label class="form__radio">
+                <input type="radio" name="urgency" value="Just planning">
+                Just planning
+              </label>
+            </div>
+          </fieldset>
+
+          <label class="form__upload form__full">
+            Photo upload (optional)
+            <span class="form__upload-area">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#007DB8" aria-hidden="true">
+                <path d="M9 3h6l1.8 2H20a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3.2zm3 4.5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2.2a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6z"/>
+              </svg>
+              <span>Add a photo of the problem (JPG or PNG)</span>
+            </span>
+            <input type="file" name="photo" accept="image/*" style="position: absolute; width: 1px; height: 1px; opacity: 0;">
+          </label>
+
+          <label class="form__field form__full">
+            Message
+            <textarea name="message" rows="4"></textarea>
+          </label>
+
+          <button class="form__submit" type="submit">Get My Quote</button>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       EMERGENCY BANNER — Burst pipe CTA
+  ══════════════════════════════════════════ -->
+  <section class="emergency" data-section="emergency-cta">
+    <div class="emergency__inner">
+      <h2 class="emergency__title">Burst pipe or no hot water? We're on call 24/7.</h2>
+      <a class="emergency__btn" href="tel:0755501234">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/>
+        </svg>
+        Call Now
+      </a>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER — Contact, hours, services, areas
+══════════════════════════════════════════ -->
+<footer id="contact" class="footer" data-section="footer">
+  <div class="footer__inner">
+
+    <div class="footer__grid">
+
+      <!-- Brand + contact -->
+      <div class="footer__col">
+        <span class="footer__logo">
+          <span class="footer__logo-mark"></span>
+          ClearFlow
+        </span>
+        <a class="footer__phone" href="tel:0755501234">07 5550 1234</a>
+        <a class="footer__email" href="mailto:hello@clearflow.demo">hello@clearflow.demo</a>
+        <span>Licensed and insured (sample)</span>
+      </div>
+
+      <!-- Opening hours -->
+      <div class="footer__col">
+        <h3>Opening hours</h3>
+        <span>Mon to Fri: 7am to 5pm</span>
+        <span>Sat: 8am to 12pm</span>
+        <span>Emergency: 24/7</span>
+      </div>
+
+      <!-- Services -->
+      <div class="footer__col">
+        <h3>Services</h3>
+        <a href="#">Blocked Drains</a>
+        <span>Hot Water Systems</span>
+        <span>Leak Detection</span>
+        <span>Gas Fitting</span>
+        <span>Bathroom Plumbing</span>
+        <span>Roof and Gutters</span>
+      </div>
+
+      <!-- Areas -->
+      <div class="footer__col">
+        <h3>Areas</h3>
+        <span>Brisbane CBD, Paddington, Indooroopilly, Chermside, Carindale, Wynnum, Springwood, North Lakes</span>
+      </div>
+
+    </div>
+
+    <p class="footer__legal">Concept project. Brand, people, prices and reviews are fictional.</p>
+
+  </div>
+</footer>
+
+</body>
+</html>
